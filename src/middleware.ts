@@ -5,7 +5,7 @@ export const onRequest = defineMiddleware((context, next) => {
   const currentUser = projectAuth.currentUser
   const { pathname } = context.url
 
-  if (!currentUser && pathname !== '/register' && pathname !== '/login' && context.request.method === 'GET') {
+  if (!currentUser && pathname !== '/login' && context.request.method === 'GET') {
     return context.redirect('/login')
   }
 
@@ -13,7 +13,7 @@ export const onRequest = defineMiddleware((context, next) => {
     context.locals.userEmail = currentUser.email
   }
 
-  if (currentUser && (pathname === '/register' || pathname === '/login')) {
+  if (currentUser && pathname === '/login') {
     return context.redirect('/')
   }
 
