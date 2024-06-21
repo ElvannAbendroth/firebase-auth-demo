@@ -9,11 +9,6 @@ export default defineConfig({
   output: 'server',
   adapter: vercel(),
   server: {
-    headers: {
-      'access-control-allow-origin': '*',
-      'access-control-expose-headers': '*',
-      'access-control-request-method': '*',
-      'Cross-Origin-Opener-Policy': 'same-origin-allow-popups',
-    },
+    headers: {},
   },
 })
